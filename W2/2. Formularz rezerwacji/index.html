@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>PHP Test</title>
+    </head>
+    
+    <body>
+        
+<form action="result.php" method="post">
+    <p>Cześć, poniżej podaj proszę swoje dane rezerwacji:</p>
+    Liczba osób*<br>
+    <input type="radio" id="one_person" name="person_number" value="1" required>Jedna osoba<br>
+    <input type="radio" id="two_persons" name="person_number" value="2" required>Dwie osoby<br>
+    <input type="radio" id="three_persons" name="person_number" value="3" required>Trzy osoby<br>
+    <input type="radio" id="four_persons" name="person_number" value="4" required>Cztery osoby<br>
+    <!-- Lista rozwijana 1-4 osoby -->
+    Dane osoby dokonującej rezerwacji:<br>
+    Imię* <input type="text" name="name" required><br>
+    Nazwisko* <input type="text" name="surname" required><br>
+    Adres:<br>
+    Ulica <input type="text" name="street"><br>
+    Numer domu* <input type="text" name="house_num" required><br>
+    Numer lokalu: <input type="text" name="flat_num"><br>
+    Kod pocztowy* <input type="text" name="postal_code" required><br>
+    Miejscowość* <input type="text" name="city" required><br>
+    Dane kontaktowe:<br>
+    Nr telefonu* <input type="tel" name="tel_number" required><br>
+    Adres e-mail* <input type="email" name="email" required><br>
+    Dane do opłacenia pobytu:
+    Nr karty* <input type="ntext" name="card_num" required><br>
+    Data ważności* <input type="text" name="card_exp_date" required><br>
+    CVV* <input type="text" name="card_cvv" required><br>
+    W jakim czasie planujesz do nas przyjechać?<br>
+    Data przyjazdu* <input type="date" name="date_arrival" required><br>
+    Data odjazdu* <input type="date" name="date_departure" required><br>
+    Przybliżona godzina zakwaterowania* <br>
+    <select id="arrival_hour" name="arrival_hour" required>
+        <option value="morning">6-12</option>
+        <option value="afternoon">12-18</option>
+        <option value="evening">18-24</option>
+        <option value="night">0-6</option>
+    </select>
+    <br>
+    Dodatkowe udogodnienia:<br>
+    <input type="checkbox" name="air_conditioning"> Klimatyzacja<br>
+    <input type="checkbox" name="baby_bed"> Dostawka dla dziecka<br>
+    <input type="checkbox" name="ashtray"> Popielniczka<br>
+    <input type="checkbox" name="welcome_gift"> Pakiet powitalny<br>
+    Miejsce na komentarze lub dodatkowe życzenia od obsługi hotelowej:<br> 
+    <textarea id="comments" name="comments"rows="4" cols="50" ></textarea><br>
+
+    <input type="submit" name="send" value="Wyślij!">
+    </form>
+    
+    </body>
+    </html>
