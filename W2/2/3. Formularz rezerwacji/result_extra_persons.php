@@ -1,6 +1,8 @@
 <html>
 <body>
+<?php echo $_POST['category'].'<br>'.$_POST['subcategory'].'<br>'.$_POST['comments']; ?>
     <?php 
+    session_start();
     $person_number = $_POST["person_number"];
     // Client's personals
     $name = $_POST["name"];
@@ -49,26 +51,10 @@
         }
     }
 
-    
-    function handle_person_number($person_number) {
-        switch($person_number) {
-            case 2:
-                generate_extra_forms(1);
-                break;
-            case 3:
-                generate_extra_forms(2);
-                break;
-            case 4:
-                generate_extra_forms(3);
-                break;
-            default:
-                break;
-        }
-    }
-
     function generate_extra_forms($i) {
-        $j = 2;
+        if($i == 1) { return 0; }
         echo("<form action=\"result_extra_persons.php\" method=\"post\">");
+        $j = 0;
         while($j <= $i +1) {
             echo("<br>Gość $j<br>
             Imię* <input type=\"text\" name=\"name\" required><br>
@@ -98,7 +84,7 @@
         echo("<br>Dodatkowe komentarze:<br>$comments<br>");
     } else echo("Brak dodatkowych komentarzy.");
     
-    generate_extra_forms(3);
+    generate_extra_forms($person_number);
     echo("<br>
     Czy powyższe dane są poprawne?<br>
     <form action=\"finalize.html\" method=\"post\">
@@ -108,6 +94,8 @@
     <input type=\"submit\" name=\"send\" value=\"Popraw\">
     </form>
     ");
+    echo("TEST");
+    echo $_SESSION["person_number"]
     ?>
 </body>
 </html> 
