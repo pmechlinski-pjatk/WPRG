@@ -1,4 +1,5 @@
 <?php
+include 'getClientIP.php';
 function createLogMessage($LEVEL, $DESCRIPTION, $source = '') {
     # Get general vars
     $CLIENT_IP = getClientIP();
