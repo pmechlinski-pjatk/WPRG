@@ -4,24 +4,24 @@
     session_start(); 
     $_SESSION['person_number'] = $_POST["person_number"];
     // Client's personals
-    $_SESSION['$name'] = $_POST["name"];
-    $_SESSION['$surname'] = $_POST["surname"];
+    $_SESSION['name'] = $_POST["name"];
+    $_SESSION['surname'] = $_POST["surname"];
     
     // Address
-    $_SESSION['$street'] = $_POST["street"];
-    $_SESSION['$house_num'] = $_POST["house_num"];
-    $_SESSION['$flat_num'] = $_POST["flat_num"];
+    $_SESSION['street'] = $_POST["street"];
+    $_SESSION['house_num'] = $_POST["house_num"];
+    $_SESSION['flat_num'] = $_POST["flat_num"];
     $$_SESSION['postal_code'] = $_POST["postal_code"];
-    $_SESSION['$city'] = $_POST["city"];
+    $_SESSION['city'] = $_POST["city"];
 
     // Contact data
-    $_SESSION['$tel_number'] = $_POST["tel_number"];
-    $_SESSION['$email'] = $_POST["email"];
+    $_SESSION['tel_number'] = $_POST["tel_number"];
+    $_SESSION['email'] = $_POST["email"];
 
     // Payment data
-    $_SESSION['$card_num'] = $_POST["card_num"];
-    $_SESSION['$card_exp_date'] = $_POST["card_exp_date"];
-    $_SESSION['$card_cvv'] = $_POST["card_cvv"];
+    $_SESSION['card_num'] = $_POST["card_num"];
+    $_SESSION['card_exp_date'] = $_POST["card_exp_date"];
+    $_SESSION['card_cvv'] = $_POST["card_cvv"];
 
     // Visit time
     $_SESSION['$date_arrival'] = $_POST["date_arrival"];
@@ -68,20 +68,20 @@
     // Get results
     $arrival_hours_parsed = get_hour_range($_SESSIO['arrival_hour']);
     echo("Podsumowanie rezerwacji:<br><b>1. Dane osoby zamawiającej</b><br>");
-    echo("{$_SESSION['name']} {$_SESSION['surname']}<br>$city");
-    if(! empty({$_SESSION['street']})) { echo(" <br>Ul."); }
+    echo("{$_SESSION['name']} {$_SESSION['surname']}<br>{$_SESSION['city']}");
+    if(! empty($_SESSION['street'])) { echo(" <br>Ul."); }
     echo("{$_SESSION['street']} {$_SESSION['house_num']} {$_SESSION['flat_num']}<br>{$_SESSION['postal_code']}");
-    echo("<br><b>2. Dane kontaktowe:</b><br>Tel. {$_SESSION['tel_num']}<br>E-mail: $_SESSION['email']<br>");
+    echo("<br><b>2. Dane kontaktowe:</b><br>Tel. {$_SESSION['tel_num']}<br>E-mail: {$_SESSION['email']}<br>");
     echo("<b>3. Dane do płatności:</b><br>nr karty {$_SESSION['card_num']}<br>{$_SESSION['card_exp_date']} {$_SESSION['card_cvv']}<br>");
     echo("<b>4. Informacje o rezerwacji:</b><br>Liczba gości: {$_SESSION['person_number']}<br>Przyjazd {$_SESSION['date_arrival']} w godzinach {$_SESSION['arrival_hours_parsed']}<br>Odjazd {$_SESSION['date_departure']}<br>");
     echo("Wybrane dodatkowe udogodnienia:<br>");
-    if(! empty({$_SESSION['air_conditioning']})) { echo("- Klimatyzacja<br>"); }
-    if(! empty({$_SESSION['baby_bed']})) { echo("- Dostawka<br>"); }
+    if(! empty($_SESSION['air_conditioning'])) { echo("- Klimatyzacja<br>"); }
+    if(! empty($_SESSION['baby_bed'])) { echo("- Dostawka<br>"); }
     if(! empty($_SESSION['ashtray'])) { echo("- Popielniczka (pokój dla palących)<br>"); }
     if(! empty($_SESSION['welcome_gift'])) { echo("- Zestaw powitalny<br>"); }
 
     if(! empty($_SESSION['comments'])) { 
-        echo("<br>Dodatkowe komentarze:<br>$_SESSION['comments']<br>");
+        echo("<br>Dodatkowe komentarze:<br>{$_SESSION['comments']}<br>");
     } else echo("Brak dodatkowych komentarzy.");
     
     generate_extra_forms($_SESSION['person_number']);
