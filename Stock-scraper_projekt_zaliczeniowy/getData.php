@@ -38,7 +38,5 @@ function getStockData($html) {
     # Format percent values
     $formatted_values = formatPercentValues($pruned_header);
     
-    return $formatted_values;
-    // Poprawić formatowanie
-}
+    return $formatted_values;}
 ?>
